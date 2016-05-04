@@ -1,0 +1,42 @@
+version: '2'
+services:
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+      - "80:80"
+    links:
+      - influxdb
+    environment:
+      - GRAFANA_VERSION=2.6
+      - INFLUXDB_PROTO=http
+      # - INFLUXDB_HOST=<ip/host>
+      # - INFLUXDB_PORT=<port>
+      - INFLUXDB_NAME=digital_apps_health
+      - INFLUXDB_USER=root
+      - INFLUXDB_PASS=root
+      - INFLUXDB_IS_GRAFANADB=true
+
+  consul:
+    image: progrium/consul
+    ports:
+      - "8500:8500"
+      - "55:55/udp"
+    command: -server -bootstrap -ui-dir /ui > /dev/null
+    environment:
+      - CONSUL_VERSION=0.6.4
+
+  influxdb:
+    image: tutum/influxdb
+    ports:
+      - "8083:8083" #Admin interface port`
+      - "8086:8086" #HTTP API port
+    expose:
+      - "8090"
+      - "8099"
+    volumes:
+      - /var/influxdb:/data
+    restart: always
+    environment:
+      - INFLUXDB_VERSION=0.12.1-1
+      - PRE_CREATE_DB="digital_apps_health"
