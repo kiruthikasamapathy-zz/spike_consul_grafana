@@ -40,8 +40,11 @@ SPoG team
   * Add InfluxDB details
     * Add datasource
     * ![InfluxDB Configurations](/screenshots/influxdb-config.png?raw=true "InfluxDB Configurations")
-  * Import ```grafana-export.json``` file
-    * ![Grafana Import](/screenshots/grafana-import.jpg?raw=true "Grafana Import")
+  * Import the dashboards from exported json at grafana_exports folder
+    * Import ```spog.json``` file
+    * Import ```info.json``` file
+    * Import ```kana.json``` file
+      * ![Grafana Import](/screenshots/grafana-import.jpg?raw=true "Grafana Import")
 
 ### Architecture
 
