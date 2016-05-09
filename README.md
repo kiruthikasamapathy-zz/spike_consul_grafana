@@ -8,6 +8,8 @@ Beth Skurrie beth.skurrie@rea-group.com
 SPoG team
 [Sean Johnson](sean.johnson@iag.com.au)
 
+## Local Development
+
 ## Prerequisites
 
   * Install docker-machine
@@ -17,9 +19,9 @@ SPoG team
 ## Development
 
   * docker-compose up -d
-  * Open [Consul](http://<docker-machine-ip>:8500/ui/#/dc1/services)
-  * Open [InfluxDB](http://<docker-machine-ip>:8083/)
-  * Open [Grafana](http://<docker-machine-ip>:3000/)
+  * Open [Consul](http://<host-ip>:8500/ui/#/dc1/services)
+  * Open [InfluxDB](http://<host-ip>:8083/)
+  * Open [Grafana](http://<host-ip>:3000/)
     * admin/admin is the default user credentials
 
 ### Testing
