@@ -28,10 +28,7 @@ SPoG team
 
   * Open InfluxDB and select the <code>digital_apps_health</code> database
   * Select writedata
-    * Add the following
-    ```
-    kanakvs,source=consul CreateIndex=10,ModifyIndex=10,LockIndex=0,Identifier="kana/database",Flags=0,Value="some value here"
-    ```
+    * Copy content from data_influxdb.txt
 
 ### Display data in Grafana
 
