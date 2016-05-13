@@ -1,7 +1,7 @@
 version: '2'
 services:
   grafana:
-    image: grafana/grafana
+    image: grafana/grafana:3.0.0-beta7
     ports:
       - "3000:3000"
       - "80:80"
@@ -18,15 +18,15 @@ services:
       - INFLUXDB_IS_GRAFANADB=true
 
   influxdb:
-    image: tutum/influxdb
+    image: tutum/influxdb:0.12
     ports:
       - "8083:8083" #Admin interface port`
       - "8086:8086" #HTTP API port
     expose:
       - "8090"
       - "8099"
-    volumes:
-      - /var/influxdb/data:/data
+    # volumes:
+    #   - /var/influxdb/data:/data
     restart: always
     environment:
       - INFLUXDB_VERSION=0.12.1-1
